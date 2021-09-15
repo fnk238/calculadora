@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+*{
+margin: 0;
+padding: 0;
+}
+body{
+    background-color:rgb(44, 44, 54);
+}
+  #output{
+        position: relative;
+        background-color: rgb(255, 255, 255);     
+        font-family: 'Roboto', sans-serif; color: rgb(5, 5, 5);
+        border-radius: 10px;
+        height: 50px;
+        width: 213px;
+        top: 103px;
+        right: 3px;
+        font-size:40px;
+        border: 0 none;
+        cursor: pointer;
+        
+  }
+  .position{
+   position: absolute;
+   top: 30%;
+   left: 28%;
+
+  }
+  .button {
+    background-color: rgb(255, 255, 255);
+    height: 53px;
+    width: 53px;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+    
+    }
+  .button:hover{
+    background-color: rgb(42, 40, 44);
+    cursor: pointer;
+
+  }
+  .button2 {
+    background-color: rgb(255, 2, 192);
+    border-radius: 10px;
+    height: 53px;
+    width: 53px;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+
+   
+    }
+  .button2:hover{
+    background-color: rgb(42, 40, 44);
+    cursor: pointer;
+
+  }
+  .button4 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 53px;
+    width: 53px;
+    font-size: 30px; color: brown;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+
+
+   
+    }
+  .button4:hover{
+    background-color: rgb(42, 40, 44);
+    cursor: pointer;
+
+  }
+  
+    
+  
+  .comeco{
+    position: absolute;
+    font-size: 23px; color: rgb(255, 255, 255);
+    font-family: 'Roboto Condensed', sans-serif;
+    left: 43%;
+    top:  5%;
+  }
+  .fundo{
+    background-image: black;
+  }
+.position3 {
+    position: fixed;
+    height: 30px;
+    width:30px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto Condensed', sans-serif;
+    left: 30%;
+    top: 3%;
+}
+  
+  </style>
+      <div class="position">
+      <table>
+        <tr>
+          <td><button class="button4" id="btclean" onclick="clean('C')">C</button></td>
+          <td><button class="button" onclick="insert('( )')">( )</button></td>
+          <td><button class="button" onclick="insert('/100')">%</button></td>
+          <td><button class="button2" id="btdivi" onclick="insert('/')">÷</button></td>
+          </tr>
+
+        <tr>
+          <td><button class="button" id="bt7" onclick="insert('7')">7</button></td>
+          <td><button class="button" id="bt8" onclick="insert('8')">8</button></td>
+          <td><button class="button" id="bt9" onclick="insert('9')">9</button></td>
+          <td><button class="button2" id="btmulti" onclick="insert('*')">x</button></td>
+        </tr>
+        <tr>
+          <td><button class="button" id="bt4" onclick="insert('4')">4</button></td>
+          <td><button class="button" id="bt5" onclick="insert('5')">5</button></td>
+          <td><button class="button" id="bt6" onclick="insert('6')">6</button></td>
+          <td><button class="button2" id="btsubtra" onclick="insert('-')">-</button></td>
+        </tr>
+      
+      <tr>
+        <td><button class="button" id="bt1" onclick="insert('1')">1</button></td>
+          <td><button class="button" id="bt2" onclick="insert('2')">2</button></td>
+          <td><button class="button" id="bt3" onclick="insert('3')">3</button></td>
+          <td><button class="button2" id="btsoma" onclick="insert('+')">+</button></td>
+      </tr>
+      <tr>
+        <td><button class="button" onclick="insert('+/-')">+/-</button></td>
+          <td><button class="button" id="bt0" onclick="insert('0')">0</button></td>
+          <td><button class="button" onclick="insert(',')">,</button></td>
+          <td><button class="button2" id="btcalcular" onclick="calcular()">=</button></td>
+      </tr>
+    </table>
+    
+    </div>
+     
+        <div class="comeco">
+          <h1>Calculadora</h1>
+        </div>
+        <div class="position3">
+       <p id="output"></p>
+          
+        </div>
+
+        
+      
+      <script>
+        $ (document).ready (function (){
+    $("#bt1").click(function(){
+        let x =$("#output").text();
+        x = x +'1';
+        $("#output").text(x);
+    });
+    $("#bt2").click(function(){
+        let x =$("#output").text();
+        x = x +'2';
+        $("#output").text(x);
+    });
+    $("#bt3").click(function(){
+        let x =$("#output").text();
+        x = x +'3';
+        $("#output").text(x);
+    });
+    $("#bt4").click(function(){
+        let x =$("#output").text();
+        x = x +'4';
+        $("#output").text(x);
+    });
+    $("#bt5").click(function(){
+        let x =$("#output").text();
+        x = x +'5';
+        $("#output").text(x);
+    });
+    $("#bt6").click(function(){
+        let x =$("#output").text();
+        x = x +'6';
+        $("#output").text(x);
+    });
+    $("#bt7").click(function(){
+        let x =$("#output").text();
+        x = x +'7';
+        $("#output").text(x);
+    })
+    $("#bt8").click(function(){
+        let x =$("#output").text();
+        x = x +'8';
+        $("#output").text(x);
+    });
+    $("#bt9").click(function(){
+        let x =$("#output").text();
+        x = x +'9';
+        $("#output").text(x);
+    });
+    $("#bt0").click(function(){
+        let x =$("#output").text();
+        x = x +'0';
+        $("#output").text(x);
+    });
+});
+
+$(document).ready (function (){
+    $("#btclean").click(function(){
+        let x =$("#output").text();
+        x = '';
+        $("#output").text(x);
+    });
+    $("#btsoma").click(function(){
+        let x =$("#output").text();
+        x = x + '+';
+        $("#output").text(x);
+    });
+    $("#btsubtra").click(function(){
+        let x =$("#output").text();
+        x = x + '-';
+        $("#output").text(x);
+    });
+    $("#btmulti").click(function(){
+        let x =$("#output").text();
+        x = x + '*';
+        $("#output").text(x);
+    });
+    $("#btdivi").click(function(){
+        let x =$("#output").text();
+        x = x + '/';
+        $("#output").text(x);
+    });
+
+}); 
+
+function calcular(){
+    var output = document.getElementById('output').innerHTML;
+    if(output)
+    {
+        document.getElementById('output').innerHTML = eval(output);
+    }
+}
+
+      </script>
+      
+      
+      
+
+</body>
+
+
+</html>
